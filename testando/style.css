@@ -1,0 +1,88 @@
+
+body{
+    background-color: rgb(16, 20, 43);
+    min-height: 97dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+div{
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+div#um{
+    border: 1.5px dashed rgb(0, 204, 255);
+    width: 350px;
+    height: 350px;
+    z-index: 1;
+}
+div#dois{
+    border: 3px dashed rgb(0, 204, 255);
+    width: 300px;
+    height: 300px;
+    z-index: 2;
+}
+div#tres{
+    border: 3px dashed rgba(255, 0, 76, 0.849);
+    width: 260px;
+    height: 260px;
+    z-index: 3;
+}
+div#quatro{
+    border: 1px dashed rgb(255, 196, 0);
+    width: 230px;
+    height: 230px;
+    z-index: 4;
+}
+div#cinco{
+    border: 0.7px dashed rgba(255, 0, 149, 0.781);
+    width: 200px;
+    height: 200px;
+    z-index: 5;
+}
+img{
+    height: 150px;
+    position: absolute;
+    z-index: 6;
+}
+
+
+@keyframes Rodando {
+    0%{
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/*
+.rotacao{
+
+    animation: Rodando 10s linear infinite normal both;
+
+
+    animation-name: Rodando;
+    animation-duration: 120s;
+    animation-timing-function: linear;
+    animation-delay: 0s;  
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-fill-mode: both;
+
+
+}
+*/
+.normal{
+    animation: Rodando 40s linear infinite normal both;
+}
+.devagar{
+    animation: Rodando 60s linear infinite normal both;
+}
+.muitodevagar{
+    animation: Rodando 80s linear infinite normal both;
+}

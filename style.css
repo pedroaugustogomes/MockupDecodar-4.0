@@ -1,0 +1,553 @@
+@charset "UTF-8";
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+@font-face {
+    font-family: 'decodar';
+    src: url(FONTES/GrandGalaxy-Rpopl.otf);
+}
+@font-face {
+    font-family: 'changa';
+    src: url(FONTES/Changa/Changa-VariableFont_wght.ttf);
+}
+@import url('https://fonts.googleapis.com/css2?family=REM:wght@500&display=swap');
+
+:root{
+    --fonteDecodar: 'decodar', cursive;
+    --fontepadrao: 'changa', cursive;
+}
+
+
+body::-webkit-scrollbar {
+    width: 5px;               /* width of the entire scrollbar */
+}
+  
+body::-webkit-scrollbar-track {
+    background: rgb(54, 54, 54);        /* color of the tracking area */
+}
+  
+body::-webkit-scrollbar-thumb {
+    background-color: rgb(133, 133, 133);    /* color of the scroll thumb */
+    border-radius: 2.5px;       /* roundness of the scroll thumb */
+/*  border: 3px solid orange;   creates padding around scroll thumb */
+}
+
+
+body{
+    min-width: 100dvw;
+    overflow-x: hidden;
+    background-color: black;
+    color: white;
+    font-family: var(--fontepadrao);
+}
+
+/* HEADER */
+
+
+nav{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    position: fixed;
+    top: 10px;
+    z-index: 3;
+    background-color: rgb(39, 39, 39);
+    color: white;
+    height: 50px;
+    width: 500px;
+    margin: auto;
+    padding: 0 30px;
+    border-radius: 15px;
+    box-shadow: 0 6px 30px rgba(255, 255, 255, 0.062);
+    left: 50%;
+    transform: translateX(-50%);
+}
+.menu-none{
+    left: -280px;
+}
+.menu-show{
+    animation: showmenuanim .5s ease both;
+}
+.menu-hide{
+    animation: hidemenuanim .5s ease both;
+}
+@keyframes showmenuanim {
+    from{left: -280px;}
+    to{
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+@keyframes hidemenuanim {
+    from{
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    to{left: -280px;}
+}
+div#area-icon-menu{
+    position: absolute;
+    cursor: pointer;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 300,
+    'GRAD' 0,
+    'opsz' 48;
+    scale: 1.2;
+    display: none;
+}
+div.icon-menu-left{
+    animation: icon-menu-left .5s ease both;
+}
+div.icon-menu-right{
+    animation: icon-menu-right .5s ease both;
+}
+@keyframes icon-menu-left {
+    from{left: -50px;}
+    to{right: -50px;}
+}
+@keyframes icon-menu-right {
+    from{right: -50px;}
+    to{left: -50px;}
+}
+span.icon-menu-show{
+    animation: in-icon-menu .5s ease both;
+    display: block;
+}
+span.icon-menu-hide{
+    animation: out-icon-menu .5s ease both;
+    display: none;
+}
+
+@keyframes show-icon-menu {
+    from{display: none;}
+    to{
+        display: block;
+        transform: rotate(360deg);
+    }
+}
+@keyframes hide-icon-menu {
+    from{display: block;}
+    to{
+        display: none;
+        transform: rotate(360deg);
+    }
+}
+
+
+nav img{
+    width: 30px;
+}
+nav a{
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    font-size: 1.1em;
+}
+nav a:hover{
+    color: rgb(167, 167, 167);
+}
+
+main{
+    margin: auto;
+    width: 100dvw;
+    min-height: 400dvh;
+}
+
+/* TITULO */
+
+
+section#animacao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    height: 100dvh;
+    flex-wrap: wrap;
+}
+section#zeroum{
+    display: block;
+    max-width: 720px;
+}
+section#zeroum div#bloco{
+    width: 710px;
+    height: 150px;
+    display: flex;
+    align-items: end;
+    justify-content: start;
+    background-color: black;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+div#bloco img{
+    position: absolute;
+}
+img#logD{
+    z-index: -1;
+    width: 99px;
+    top: 61px;
+    left: 0px;
+}
+img#logfog{
+    width: 150px;
+    z-index: -2;
+    animation: logoFoguete 2s both;
+}
+@keyframes logoFoguete {
+    0%{
+        transform: translateX(-150px) translateY(150px) rotate(-45deg);
+        
+    }
+    100%{
+        transform: translateX(0px) translateY(0px) rotate(0deg);
+        
+    }
+}
+h1#ecodar{
+    height: 150px;
+    font-size: 6.5em;
+    position: absolute;
+    left: 100px;
+    top: 50px;
+    font-family: var(--fonteDecodar);
+    font-weight: 50;
+}
+h2#subtitulo{
+    text-align: center;
+    font-weight: 400;
+    margin-top: 10px;
+    position: relative;
+}
+div#spansub{
+    display: flex;
+    justify-content: center;
+}
+#spansub p{
+    letter-spacing: .2em;
+    border-right: 2px solid black;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: 
+    pisca .5s step-end infinite alternate, 
+    typing 2s linear 2.5s both;
+    width: 0;
+}
+@keyframes pisca {
+    50%{border-color: white;}
+}
+@keyframes typing {
+    from{ width: 0; }
+    to{ width: 279.5px; }
+    
+}
+span#spansub{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+div#mouse{
+    width: 30px;
+    height: 50px;
+    border-radius: 20px;
+    border: 3px solid white;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 85dvh;
+    display: flex;
+    justify-content: center;
+}
+div#rolamento{
+    width: 5px;
+    height: 5px;
+    border-radius: 2.5px;
+    background: white;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 8px;
+    animation: rolamento 1.5s ease-in-out infinite both;
+}
+@keyframes rolamento {
+    50%{
+        height: 15px;
+    }
+    100%{
+        height: 5px;
+    }
+}
+
+
+/* TEXTO UM */
+
+
+section#textoum{
+    margin: auto;
+    height: 100dvh;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+#textoum p{
+    font-size: 2em;
+    text-align: center;
+    display: block;
+    width: 90dvw;
+    max-width: 1000px;
+}
+/*
+a#link-conhecer-trabalhos{
+    text-decoration: none;
+}
+div#conhecer-trabalhos{
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border: 2px solid rgb(55, 23, 114);
+    width: 300px;
+    margin: auto;
+    transition-duration: .4s;
+}
+
+div#conhecer-trabalhos:hover{
+    scale: 1.1;
+}
+
+#conhecer-trabalhos > p{
+    color: rgb(55, 23, 114);
+    font-weight: 400;
+    font-size: 1.2em;
+    padding: 0;
+    margin: 0;
+}
+*/
+
+/* TRABALHOS */
+
+
+section#trabalhos{
+    width: 100dvw;
+    margin: 200px auto;
+    padding: 100px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+#trabalhos p{
+    font-size: 1.5em;
+    text-align: center;
+    margin: 100px auto 50px;
+    width: 1000px;
+}
+div#notebook-screen{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+#notebook-screen img{
+    width: 400px;
+    z-index: 2;
+}
+div#img-screen{
+    width: 252px;
+    height: 156px;
+    position: absolute;
+    z-index: 1;
+    top: 40px;
+    background-image: url(imagem-site-1.png);
+    background-size: cover;
+    animation: notebook 35s linear infinite both;
+}
+.animation-notebook{
+    animation: notebook 35s linear infinite both;
+}
+@keyframes notebook {
+    0%{background-position: top center;}
+    50%{background-position: bottom center;}
+    100%{background-position: top center;}
+}
+div#celular-screen{
+    position: relative;
+    width: 149px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 33px;
+    overflow: hidden;
+}
+#celular-screen img{
+    width: 300px;
+    z-index: 2;
+}
+div#img-celular-screen{
+    position: absolute;
+    background-image: url(imagem-site-2.png);
+    width: 134px;
+    height: 280px;
+    background-size: cover;
+    animation: notebook 40s linear infinite both;
+}
+.animation-celular{
+    animation: notebook 40s linear infinite both;
+}
+#trabalhos h1{
+    font-size: 4em;
+    width: 90dvw;
+    text-align: center;
+}
+
+
+/*CONTATO*/
+
+section#contato{
+    background-color: rgb(44, 44, 44);
+    background: linear-gradient(to bottom right, #110714, #16071bd0);
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+div#flexcontatos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 50px;
+}
+#contato h1{
+    font-size: 40px;
+    line-height: 1.3em;
+    text-align: center;
+    font-family: 'REM', sans-serif;
+    font-weight: 600;
+}
+a#linkcontato{
+    text-decoration: none;
+    color: white;
+}
+div#entrar-em-contato{
+    background-color: #af48ce;
+    box-sizing: border-box;
+    padding: 5px 10px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    transition-duration: .5s;
+}
+#entrar-em-contato div{
+    border-radius: 50%;
+    background-color: white;
+    width: 22px;
+    height: 22px;
+    color: #110714;
+    display: inline-block;
+}
+span#icon-arrow{
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 5
+}
+#entrar-em-contato:hover{
+    background-color: #110714;
+    border: 1px solid rgba(255, 255, 255, 0.726);
+    scale: 1.05;
+}
+
+.titulos{
+    display: block;
+    text-align: center;
+    font-size: 2.5em;
+}
+
+
+/* FOOTER */
+
+
+footer{
+    height: 70dvh;
+    background: linear-gradient(to bottom left, #110714, #16071bd0);
+    width: 100vw;
+    position: relative;
+}
+div#traço-footer{
+    height: 1px;
+    width: 60dvw;
+    background-color: #af48ce;
+    margin: auto;
+}
+div#conteudo-footer{
+    width: 60dvw;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    margin: auto;
+    box-sizing: border-box;
+    padding-top: 80px;
+}
+#logo-e-copyright{
+    position: relative;
+}
+#logo-e-copyright img{
+    width: 200px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#logo-e-copyright p{
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 0.7em;
+    color: rgb(180, 180, 180);
+    position: absolute;
+    left: 0;
+    top: 45px;
+    display: block;
+    width: 200px;
+}
+#redes-sociais{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    column-gap: 10px;
+    height: 58px;
+}
+#redes-sociais img{
+    transition-duration: .3s;
+}
+#redes-sociais img:hover{
+    scale: 1.05;
+    filter: invert(100%);
+}
+footer h1{
+    font-family: var(--fonteDecodar);
+    font-size: 12dvw;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    overflow: hidden;
+    height: 11dvw;
+    background: linear-gradient(to bottom, #d0a8dd86, #16071b);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
